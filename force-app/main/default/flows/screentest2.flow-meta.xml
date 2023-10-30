@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <apiVersion>58.0</apiVersion>
+    <choices>
+        <name>Choice1</name>
+        <choiceText>Level A</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>levelA</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Level_B</name>
+        <choiceText>Level B</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Level B</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Level_C</name>
+        <choiceText>Level C</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Level C</stringValue>
+        </value>
+    </choices>
+    <dynamicChoiceSets>
+        <name>rating</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Rating</picklistField>
+        <picklistObject>Account</picklistObject>
+    </dynamicChoiceSets>
+    <environments>Default</environments>
+    <formulas>
+        <name>fullname</name>
+        <dataType>String</dataType>
+        <expression>{!name.firstName}+&apos; &apos;+{!name.lastName}</expression>
+    </formulas>
+    <formulas>
+        <name>uppercase</name>
+        <dataType>String</dataType>
+        <expression>UPPER({!fullname})</expression>
+    </formulas>
+    <interviewLabel>screentest2 {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>screentest2</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <screens>
+        <name>fullname_show</name>
+        <label>fullname show</label>
+        <locationX>176</locationX>
+        <locationY>242</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>fullname1</name>
+            <dataType>String</dataType>
+            <fieldType>InputField</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>upper</name>
+            <fieldText>&lt;p&gt;{!fullname}&lt;/p&gt;&lt;p&gt;{!uppercase}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>screenTest2</name>
+        <label>screenTest2</label>
+        <locationX>176</locationX>
+        <locationY>134</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>fullname_show</targetReference>
+        </connector>
+        <fields>
+            <name>name</name>
+            <extensionName>flowruntime:name</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <storeOutputAutomatically>true</storeOutputAutomatically>
+        </fields>
+        <fields>
+            <name>pick</name>
+            <choiceReferences>Choice1</choiceReferences>
+            <choiceReferences>Level_B</choiceReferences>
+            <choiceReferences>Level_C</choiceReferences>
+            <dataType>String</dataType>
+            <fieldType>DropdownBox</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Rating1</name>
+            <choiceReferences>rating</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Rating</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>screenTest2</targetReference>
+        </connector>
+    </start>
+    <status>Draft</status>
+    <textTemplates>
+        <name>email1</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>happy birthday {!fullname}</text>
+    </textTemplates>
+</Flow>
