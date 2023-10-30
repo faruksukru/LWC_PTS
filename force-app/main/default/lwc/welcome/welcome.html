@@ -1,0 +1,65 @@
+<template>
+    <p>With default attribute values of <code>size</code> and <code>flexibility</code>, layout items take the size of their content and don't occupy entire width of the container.</p>
+<div class="slds-box slds-p-around_none slds-m-top_x-small slds-m-bottom_medium slds-m-horizontal_none">
+    <lightning-layout>
+        <lightning-layout-item>
+          <p>Test</p>  
+        </lightning-layout-item>
+        <lightning-layout-item>
+            <p>Test2</p>  
+          </lightning-layout-item>
+    </lightning-layout>
+    <lightning-layout>
+        <p>Test2</p>
+    </lightning-layout>
+</div>
+<hr>
+<lightning-avatar src={avatar}></lightning-avatar>
+<hr>
+<lightning-button variant="brand" title="Click For test" label="Test" class="slds-m-left_x-small"></lightning-button><br>
+<lightning-button variant="destructive" title="Click For test" label="Test"></lightning-button><br>
+<lightning-button variant="success" title="Click For test" label="Test"></lightning-button>
+<hr>
+<lightning-button-group>
+    <lightning-button variant="brand" title="Click For test" label="Test" class="slds-m-left_x-small"></lightning-button>
+    <lightning-button variant="destructive" title="Click For test" label="Test"></lightning-button>
+    <lightning-button variant="success" title="Click For test" label="Test"></lightning-button>   
+</lightning-button-group>
+<br>
+<lightning-button-group>
+    <lightning-button label="Edit" icon-name="standard:event" ></lightning-button>
+    <lightning-button label="Refresh"></lightning-button>
+    <lightning-button label="Copy"></lightning-button>   
+</lightning-button-group>
+<lightning-icon icon-name="standard:event" alternative-text="Event" title="Event"></lightning-icon>
+<lightning-icon icon-name="standard:account" alternative-text="Account" title="Account"></lightning-icon>
+<lightning-icon icon-name="standard:address" alternative-text="Address" title="Address"></lightning-icon>
+<lightning-icon icon-name="standard:email" alternative-text="Email" title="Email"></lightning-icon>
+<hr>
+<lightning-accordion>
+    <lightning-accordion-section label="Acc A">
+        <p>This is the first Accordion section</p>
+    </lightning-accordion-section>
+    <lightning-accordion-section label="Acc B">
+        <p>This is the first Accordion section</p>
+    </lightning-accordion-section>
+    <lightning-accordion-section label="Acc C">
+        <p>This is the first Accordion section</p>
+    </lightning-accordion-section>
+</lightning-accordion>
+<hr>
+<lightning-textarea name="input1" label="Enter some text" onchange={countLength}></lightning-textarea>
+    <lightning-textarea name="input2" label="Textarea field with a predefined value" value="initial value"></lightning-textarea>
+    <lightning-textarea name="input3" label="Textarea field with a placeholder" placeholder="type here..."></lightning-textarea>
+    <br>
+    <lightning-card title="Repeat what you write">
+        <p >{text}</p>
+    </lightning-card>
+    <lightning-badge label="Account Name" icon-name="standard:account" class="slds-badge_inverse"></lightning-badge>
+    <lightning-badge label="Approved" class="slds-badge slds-theme_warning"> </lightning-badge>
+    <hr>
+    <lightning-progress-bar variant="circular" size="large" value="100"></lightning-progress-bar><br>
+    <lightning-progress-bar size="small" value="75"></lightning-progress-bar>
+    
+
+</template>
